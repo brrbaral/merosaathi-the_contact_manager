@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{%load staticfiles %}
+{% block title %}
+{% if contact.manager == request.user %}
+   Delete {{contact.name}}
+
+{% else %}
+contact not found
+{%endif%}
+{% endblock title %}
+{%block content%}
+{% if contact.manager == request.user %}
+
+<h1>Are you Sure to delete {{contact.name}}?</h1>
+<img src="{{contact.image.url}}">
+<form method="POST" action="">
+{% csrf_token %}
+
+<input type="submit" value="Delete" class="btn btn-danger">
+&nbsp;&nbsp;&nbsp;
+<a class="btn btn-primary" href="{% url 'detail' contact.id %}">Cancel</a>
+</form>
+
+{% else %}
+<div class="container">
+        <h2 class="heading font-weight-light text-center">You cant access to this page </h2>
+        <hr />
+    </div>
+{% endif %}
+{%endblock content%} 

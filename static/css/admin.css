@@ -1,0 +1,9 @@
+/*#header{   this #header is get from inspecting admin page ther is id ="header" 
+    background:#29a7a6 !important;
+}
+*/
+
+/* for other headings like users and others in table isnpect it and found  "CONTENT" so to use them both at a tmie  */
+#header,caption{
+    background: #29a7a6 !important;
+}
